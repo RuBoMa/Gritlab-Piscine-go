@@ -1,0 +1,1 @@
+ls -A -tp -m | tr -d '[ ]' | sort
