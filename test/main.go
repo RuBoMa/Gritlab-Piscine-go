@@ -1,12 +1,15 @@
 package main
 
-import (
-	"fmt"
-	"piscine"
-)
+import "fmt"
 
 func main() {
-	fmt.Println(piscine.CountAlpha("Hello world"))
-	fmt.Println(piscine.CountAlpha("H e l l o"))
-	fmt.Println(piscine.CountAlpha("H1e2l3l4o"))
+	fmt.Println(RectPerimeter(10, 2))
+	fmt.Println(RectPerimeter(434343, 898989))
+	fmt.Println(RectPerimeter(10, -2))
+}
+func RectPerimeter(w, h int) int {
+	if (w < 0) || (h < 0) {
+		return -1
+	}
+	return 2 * (w + h)
 }

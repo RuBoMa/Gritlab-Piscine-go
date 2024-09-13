@@ -5,8 +5,8 @@ func CountChar(str string, c rune) int {
 		return 0
 	}
 	count := 0
-	for _, p := range str {
-		if p == c {
+	for _, char := range str {
+		if char == c {
 			count++
 		}
 	}
