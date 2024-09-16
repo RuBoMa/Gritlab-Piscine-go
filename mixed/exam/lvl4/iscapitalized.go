@@ -9,5 +9,5 @@ func isCapitalized(s string) bool {
 			return false
 		}
 	}
-	return !(s[0] <= 'a' && s[0] <= 'z')
+	return !(s[0] >= 'a' && s[0] <= 'z')
 }
