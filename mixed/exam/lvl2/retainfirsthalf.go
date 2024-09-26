@@ -1,14 +1,13 @@
+package main
+
 func RetainFirstHalf(str string) string {
-	if len(str) == 0 {
+	half := len(str)
+	if half == 0 {
 		return ""
-	} else if len(str) == 1 {
-		return (str)
-	} else {
-		var res strings.Builder
-		i := 0
-		for i = 0; i < int(len(str)/2); i++ {
-			res.WriteRune(rune(str[i]))
-		}
-		return res.String()
 	}
+	if half == 1 {
+		return str
+	}
+	jako := half / 2
+	return str[:jako]
 }

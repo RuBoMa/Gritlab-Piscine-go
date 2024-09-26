@@ -5,21 +5,19 @@ import (
 )
 
 func main() {
-	fmt.Println(IsCapitalized("Hello! How are you?"))
-	fmt.Println(IsCapitalized("Hello How Are You"))
-	fmt.Println(IsCapitalized("Whats 4this 100K?"))
-	fmt.Println(IsCapitalized("Whatsthis4"))
-	fmt.Println(IsCapitalized("!!!!Whatsthis4"))
-	fmt.Println(IsCapitalized(""))
+	fmt.Println(RetainFirstHalf("This is the 1st halfThis is the 2nd half"))
+	fmt.Println(RetainFirstHalf("A"))
+	fmt.Println(RetainFirstHalf(""))
+	fmt.Println(RetainFirstHalf("Hello World"))
 }
-func IsCapitalized(s string) bool {
-	if len(s) == 0 {
-		return false
+func RetainFirstHalf(str string) string {
+	half := len(str)
+	if half == 0 {
+		return ""
 	}
-	for i := 0; i < len(s); i++ {
-		if s[i] >= 'a' && s[i] <= 'z' && i != 0 && s[i-1] == ' ' {
-			return false
-		}
+	if half == 1 {
+		return str
 	}
-	return !(s[0] >= 'a' && s[0] <= 'z')
+	jako := half / 2
+	return str[:jako]
 }
