@@ -14,5 +14,5 @@ func main() {
 	}
 	input := os.Args[1]
 	result := ascii.PrintAsciiArt(input)
-	fmt.Println(result)
+	fmt.Print(result)
 }
