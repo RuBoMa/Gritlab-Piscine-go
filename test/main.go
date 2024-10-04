@@ -5,19 +5,18 @@ import (
 )
 
 func main() {
-	fmt.Println(RetainFirstHalf("This is the 1st halfThis is the 2nd half"))
-	fmt.Println(RetainFirstHalf("A"))
-	fmt.Println(RetainFirstHalf(""))
-	fmt.Println(RetainFirstHalf("Hello World"))
+	fmt.Println(CamelToSnakeCase("HelloWorld"))
+	fmt.Println(CamelToSnakeCase("helloWorld"))
+	fmt.Println(CamelToSnakeCase("camelCase"))
+	fmt.Println(CamelToSnakeCase("CAMELtoSnackCASE"))
+	fmt.Println(CamelToSnakeCase("camelToSnakeCase"))
+	fmt.Println(CamelToSnakeCase("hey2"))
 }
-func RetainFirstHalf(str string) string {
-	half := len(str)
-	if half == 0 {
+func CamelToSnakeCase(s string) string {
+	if len(s) == "" {
 		return ""
 	}
-	if half == 1 {
-		return str
+	if s != camelCase {
+		return s
 	}
-	jako := half / 2
-	return str[:jako]
 }
