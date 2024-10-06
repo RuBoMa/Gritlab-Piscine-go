@@ -10,3 +10,19 @@ func HashCode(dec string) string {
 	}
 	return hashed
 }
+
+func HashCode(dec string) string {
+	size := len(dec)
+	result := ""
+
+	for _, char := range dec {
+		ascii := int(char)
+		Hash := (ascii + size) % 127
+
+		if Hash < 33 {
+			Hash += 33
+		}
+		result += string(Hash)
+	}
+	return result
+}

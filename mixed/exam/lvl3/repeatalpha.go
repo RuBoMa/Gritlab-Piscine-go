@@ -1,26 +1,33 @@
 package main
 
 import (
-	"unicode"
+	"fmt"
 )
 
-//	func main() {
-//		fmt.Println(RepeatAlpha("abc"))
-//		fmt.Println(RepeatAlpha("Choumi."))
-//		fmt.Println(RepeatAlpha(""))
-//		fmt.Println(RepeatAlpha("abacadaba 01!"))
-//	}
+func main() {
+	fmt.Println(RepeatAlpha("abc"))
+	fmt.Println(RepeatAlpha("Choumi."))
+	fmt.Println(RepeatAlpha(""))
+	fmt.Println(RepeatAlpha("abacadaba 01!"))
+}
 func RepeatAlpha(s string) string {
-	res := ""
-	for _, r := range s {
-		if unicode.IsLetter(r) {
-			rep := unicode.ToLower(r) - 'a' + 1
-			for i := 0; i < int(rep); i++ {
-				res += string(r)
+	if len(s) == 0 {
+		return ""
+	}
+	result := ""
+	for _, char := range s {
+		if char >= 'a' && char <= 'z' {
+			index := int(char - 'a' + 1)
+			for i := 0; i < index; i++ {
+				result += string(char)
 			}
-		} else {
-			res += string(r)
+
+		} else if char >= 'A' && char <= 'Z' {
+			index := int(char - 'A' + 1)
+			for i := 0; i < index; i++ {
+				result += string(char)
+			}
 		}
 	}
-	return res
+	return result
 }

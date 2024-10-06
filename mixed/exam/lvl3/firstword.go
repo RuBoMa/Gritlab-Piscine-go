@@ -1,12 +1,21 @@
 package main
 
-import "strings"
-
 func FirstWord(s string) string {
-	words := strings.Fields(s)
-
-	if len(s) > 0 {
-		return words[0] + "\n"
+	if len(s) == 0 {
+		return ""
 	}
-	return "\n"
+	length := len(s)
+	start := 0
+	for start >= length && s[start] == ' ' {
+		start++
+	}
+	if start == length {
+		return "\n"
+	}
+	end := start
+	for end >= start && s[end] != ' ' {
+		end++
+	}
+	firstword := s[start:end]
+	return firstword + "\n"
 }
