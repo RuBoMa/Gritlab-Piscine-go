@@ -1,29 +1,36 @@
 package main
 
 import (
-	"os"
-
-	"github.com/01-edu/z01"
+	"fmt"
 )
 
 func main() {
-	if len(os.Args) > 4 {
-		return
+	fmt.Println(CamelToSnakeCase("HelloWorld"))
+	fmt.Println(CamelToSnakeCase("helloWorld"))
+	fmt.Println(CamelToSnakeCase("camelCase"))
+	fmt.Println(CamelToSnakeCase("CAMELtoSnackCASE"))
+	fmt.Println(CamelToSnakeCase("camelToSnakeCase"))
+	fmt.Println(CamelToSnakeCase("hey2"))
+}
+func CamelToSnakeCase(s string) string {
+	if len(s) == 0 {
+		return ""
 	}
-	word := os.Args[1]
-	new := os.Args[2]
-	old := os.Args[3]
-
 	result := ""
-	for _, i := range word {
-		if string(i) == old {
-			result += new
-		} else {
-			result += string(i)
+	for i, char := range s {
+		if (char < 'a' || char > 'z') && (char < 'A' || char > 'Z') {
+			return s
 		}
+
+		if char >= 'A' && char <= 'Z' {
+			if i > 0 {
+				if s[i-1] >= 'A' && s[i-1] <= 'Z' || i == len(s)-1 {
+					return s
+				}
+				result += "_"
+			}
+		}
+		result += string(char)
 	}
-	for _, char := range result {
-		z01.PrintRune(char)
-	}
-	z01.PrintRune('\n')
+	return result
 }

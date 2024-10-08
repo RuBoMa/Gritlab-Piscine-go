@@ -9,8 +9,10 @@ func LastWord(s string) string {
 	if s == "" {
 		return "\n"
 	}
+
 	length := len(s)
 	end := length - 1
+	
 	for end >= 0 && s[end] == ' ' {
 		end--
 	}

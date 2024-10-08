@@ -16,8 +16,8 @@ func main() {
 
 	result := ""
 	for _, i := range word {
-		if string(i) == old {
-			result += new
+		if string(i) == new {
+			result += old
 		} else {
 			result += string(i)
 		}
