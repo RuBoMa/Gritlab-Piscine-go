@@ -5,32 +5,28 @@ import (
 )
 
 func main() {
-	fmt.Println(CamelToSnakeCase("HelloWorld"))
-	fmt.Println(CamelToSnakeCase("helloWorld"))
-	fmt.Println(CamelToSnakeCase("camelCase"))
-	fmt.Println(CamelToSnakeCase("CAMELtoSnackCASE"))
-	fmt.Println(CamelToSnakeCase("camelToSnakeCase"))
-	fmt.Println(CamelToSnakeCase("hey2"))
+	fmt.Print(FirstWord("hello there"))
+	fmt.Print(FirstWord(""))
+	fmt.Print(FirstWord("      hello"))
 }
-func CamelToSnakeCase(s string) string {
-	if len(s) == 0 {
-		return ""
+func FirstWord(s string) string {
+	startIndex := 0
+	size := len(s)
+	endIndex := size
+	if s == "" {
+		return "\n"
 	}
-	result := ""
-	for i, char := range s {
-		if (char < 'a' || char > 'z') && (char < 'A' || char > 'Z') {
-			return s
+	for i := 0; i < size; i++ {
+		if s[i] != ' ' {
+			startIndex = i
+			break
 		}
-
-		if char >= 'A' && char <= 'Z' {
-			if i > 0 {
-				if s[i-1] >= 'A' && s[i-1] <= 'Z' || i == len(s)-1 {
-					return s
-				}
-				result += "_"
-			}
-		}
-		result += string(char)
 	}
-	return result
+	for i := startIndex; i < size; i++ {
+		if s[i] == ' '{
+			endIndex = i
+			break
+		}
+	}
+	return s[startIndex:endIndex] + "\n"
 }
