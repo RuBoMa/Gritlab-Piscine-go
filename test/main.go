@@ -1,32 +1,25 @@
 package main
 
 import (
-	"fmt"
+	"os"
+
+	"github.com/01-edu/z01"
 )
 
 func main() {
-	fmt.Print(FirstWord("hello there"))
-	fmt.Print(FirstWord(""))
-	fmt.Print(FirstWord("      hello"))
-}
-func FirstWord(s string) string {
-	startIndex := 0
-	size := len(s)
-	endIndex := size
-	if s == "" {
-		return "\n"
+	if len(os.Args) != 2 {
+		return
 	}
-	for i := 0; i < size; i++ {
-		if s[i] != ' ' {
-			startIndex = i
-			break
+	input := os.Args[1]
+
+	for i := 0; i < len(input); i++ {
+		if input[i] != ' ' {
+			z01.PrintRune(rune(input[i])) 
+		} else if i > 0 && input[i-1] != ' ' {
+			z01.PrintRune(' ')
+			z01.PrintRune(' ')
+			z01.PrintRune(' ')
 		}
 	}
-	for i := startIndex; i < size; i++ {
-		if s[i] == ' '{
-			endIndex = i
-			break
-		}
-	}
-	return s[startIndex:endIndex] + "\n"
+	z01.PrintRune('\n')
 }

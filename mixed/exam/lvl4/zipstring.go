@@ -6,17 +6,17 @@ import (
 
 func ZipString(s string) string {
 	result := ""
-	n := len(s)
-	i := 0
+	lenght := len(s)
+	index := 0
 
-	for i < n {
+	for index < lenght {
 		count := 1
-		for i+1 < n && s[i] == s[i+1] {
+		for index+1 < lenght && s[index] == s[index+1] {
 			count++
-			i++
+			index++
 		}
-		result += strconv.Itoa(count) + string(s[i])
-		i++
+		result += strconv.Itoa(count) + string(s[index])
+		index++
 	}
 
 	return result
