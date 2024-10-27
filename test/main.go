@@ -7,19 +7,25 @@ import (
 )
 
 func main() {
-	if len(os.Args) != 2 {
+	if len(os.Args) != 3 {
 		return
 	}
-	input := os.Args[1]
+	firstStr := os.Args[1]
+	secondStr := os.Args[2]
+	firstIndex := 0
 
-	for i := 0; i < len(input); i++ {
-		if input[i] != ' ' {
-			z01.PrintRune(rune(input[i])) 
-		} else if i > 0 && input[i-1] != ' ' {
-			z01.PrintRune(' ')
-			z01.PrintRune(' ')
-			z01.PrintRune(' ')
+	for _, char := range secondStr {
+		if char == rune(firstStr[firstIndex]) {
+			firstIndex++
+			if firstIndex == len(firstStr) {
+				break
+			}
 		}
 	}
-	z01.PrintRune('\n')
+	if firstIndex == len(firstStr) {
+		for _, char := range firstStr {
+			z01.PrintRune(char)
+		}
+		z01.PrintRune('\n')
+	}
 }
